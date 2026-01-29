@@ -1,6 +1,46 @@
 html{
-    font-family: serif;
+    font-family: 'Google Sans';
     background: rgb(253, 254, 246);
     margin: 0;
 }
 
+h1{
+    font-size: 100px;
+    background: -webkit-linear-gradient(#5f82ee, #6559F5, #730FC3, #BD34D1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+p{
+    font-size: 40px;
+    color:#788796;
+}
+
+.prompt{
+    display: flex;
+    flex-direction: row;
+    background-color: #C3CFD9;
+    color:#788796;
+    padding: 15px;
+    font-size: 40px;
+    align-items: top;
+    border-radius: 5px;
+    width: 25%;
+    justify-content: left;
+    margin: 50px;
+    height: 100px;
+    flex: 1;
+    transition: flex-grow 0.5s ease-in-out;
+}
+
+.prompt:hover {
+    flex-grow: 2;
+}
+
+.parent-container {
+  display: flex;     
+  flex-direction: row;
+  gap: 10px;         
+  width: 100%;  
+  align-items: center; 
+}
