@@ -11,7 +11,8 @@
 
   <body>
     <header class="header">
-      <div class="header-left">RyanAI</div>
+      <div class="header-left"></div>
+        <a href="index.html">RyanAI</a>
       <div class="header-right">👤</div>
     </header>
     <div class="content">
@@ -23,23 +24,23 @@
         <div class="message ai-message">
           <div class="message-icon">🤖</div>
           <div class="message-content">
+            <span id="typed-output"></span>
             <div class="photos-wrapper">
-                <div class="gallery-grid">
+                <div class="gallery-grid hidden">
                 <img class="thumb" src="lech.jpg" alt="lech">
                 <img class="thumb" src="maldives.jpg" alt="maldives">
-                <img class="thumb" src="mountain.jpg" alt="mountain">
                 <img class="thumb" src="sunrise.jpg" alt="sunrise">
                 <img class="thumb" src="snow.jpg" alt="snow">
-                <img class="thumb" src="pink.jpg" alt="pink">
+                <img class="thumb" src="angkor.JPG" alt="angkor">
                 <img class="thumb" src="dragon.jpg" alt="dragon">
                 </div>
 
-                <div class="preview">
-                <div class="preview-frame">
-                    <img id="preview-img" src="lech.jpg" alt="preview">
-                </div>
-                </div>
-            <span id="typed-output"></span>
+                  <div class="preview hidden">
+                  <div class="preview-frame">
+                    <img id="preview-img" src="" alt="preview" style="display:none;">
+                    <div id="preview-placeholder"> Click an image!</div>
+                  </div>
+                  </div>
           </div>
         </div>
       </div>
@@ -53,13 +54,33 @@
     <script>
       var typed = new Typed('#typed-output', {
         strings: [
-          'Here are some of my best photos I have taken. Hover over them to enlarge them!^1000\n</div>'
+          'Here are some of my best photos I have taken. Click them to enlarge them!^1000'
         ],
         typeSpeed: 30,
         backSpeed: 10,
         showCursor: true,
         cursorChar: '|',
-        contentType: 'html'
+        contentType: 'html',
+        onComplete: function(self) {
+          document.querySelectorAll('.gallery-grid, .preview').forEach(function(el){
+            el.classList.remove('hidden');
+          });
+        }
+      });
+
+      /* update preview on thumbnail click */
+      document.addEventListener('DOMContentLoaded', function(){
+        var thumbs = document.querySelectorAll('.gallery-grid .thumb');
+        var previewImg = document.getElementById('preview-img');
+        var previewPlaceholder = document.getElementById('preview-placeholder');
+
+        thumbs.forEach(function(thumb){
+          thumb.addEventListener('click', function(){
+            previewImg.src = this.src;
+            previewImg.style.display = 'block';
+            previewPlaceholder.style.display = 'none';
+          });
+        });
       });
     </script>
   </body>

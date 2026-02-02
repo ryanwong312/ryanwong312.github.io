@@ -11,7 +11,8 @@
 
   <body>
     <header class="header">
-      <div class="header-left">RyanAI</div>
+      <div class="header-left"></div>
+        <a href="index.html">RyanAI</a>
       <div class="header-right">👤</div>
     </header>
     <div class="content">
@@ -24,6 +25,15 @@
           <div class="message-icon">🤖</div>
           <div class="message-content">
             <span id="typed-output"></span>
+            <div class="photos-wrapper">
+                <div class="gallery-grid hidden">
+                <img class="thumb" src="lech.jpg" alt="lech">
+                <img class="thumb" src="maldives.jpg" alt="maldives">
+                <img class="thumb" src="sunrise.jpg" alt="sunrise">
+                <img class="thumb" src="snow.jpg" alt="snow">
+                <img class="thumb" src="angkor.JPG" alt="angkor">
+                <img class="thumb" src="dragon.jpg" alt="dragon">
+                </div>
           </div>
         </div>
       </div>
@@ -37,13 +47,18 @@
     <script>
       var typed = new Typed('#typed-output', {
         strings: [
-          'Here are some of my most impressive feats that I have achieved throughout my running journey:^1000\n\n<div class="stats-container"><div class="stat"><div class="stat-label">I have ran more than</div><div class="stat-value">1250 km</div></div><div class="stat"><div class="stat-label">My longest race was</div><div class="stat-value">70 km</div></div><div class="stat"><div class="stat-label">My Marathon PB is</div><div class="stat-value">3:30hr</div></div></div>\n\n<div class="strava-section"><p>You can follow my strava here:</p><a href="https://www.strava.com/athletes/138934676" class="strava-link"><img src="strava icon.png" alt="Strava"></a></div>'
+          'Here are some of my favorite movies/tv shows. Click the button to toggle between them!^1000'
         ],
         typeSpeed: 30,
         backSpeed: 10,
         showCursor: true,
         cursorChar: '|',
-        contentType: 'html'
+        contentType: 'html',
+        onComplete: function(self) {
+          document.querySelectorAll('.gallery-grid, .preview').forEach(function(el){
+            el.classList.remove('hidden');
+          });
+        }
       });
     </script>
   </body>
