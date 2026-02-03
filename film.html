@@ -25,17 +25,56 @@
             <div class="message-icon">🤖</div>
             <div class="message-content">
                 <span id="typed-output"></span>
-                <label class="switch">
-                    <input type="checkbox">
-                    <span class="slider round"></span>
-                </label>
+                <div class="toggle-container hidden">
+                    <span class="toggle-label">Movies</span>
+                    <label class="switch">
+                        <input type="checkbox">
+                        <span class="slider round"></span>
+                    </label>
+                    <span class="toggle-label">TV Shows</span>
+                </div>
                 <div class="movies-tvshows-wrapper">
                     <div class="movies-tvshows-grid hidden">
-                        <img class="movie-poster" src="dune.jpg" alt="dune">
-                        <img class="movie-poster" src="wandering.jpg" alt="wandering">
-                        <img class="movie-poster" src="interstellar.jpg" alt="interstellar">
-                        <img class="movie-poster" src="wolf.jpg" alt="wolf">
-                        <img class="movie-poster" src="maverick.JPG" alt="maverick">
+                        <div class="poster-wrapper movie-item">
+                            <img class="movie-poster" src="dune.jpg" alt="dune">
+                            <div class="ranking">1</div>
+                        </div>
+                        <div class="poster-wrapper movie-item">
+                            <img class="movie-poster" src="wandering.jpg" alt="wandering">
+                            <div class="ranking">2</div>
+                        </div>
+                        <div class="poster-wrapper movie-item">
+                            <img class="movie-poster" src="interstellar.jpg" alt="interstellar">
+                            <div class="ranking">3</div>
+                        </div>
+                        <div class="poster-wrapper movie-item">
+                            <img class="movie-poster" src="wolf.jpg" alt="wolf">
+                            <div class="ranking">4</div>
+                        </div>
+                        <div class="poster-wrapper movie-item">
+                            <img class="movie-poster" src="maverick.JPG" alt="maverick">
+                            <div class="ranking">5</div>
+                        </div>
+                        <div class="poster-wrapper tvshow-item hidden">
+                            <img class="tvshow-poster" src="money.jpg" alt="money">
+                            <div class="ranking">1</div>
+                        </div>
+                        <div class="poster-wrapper tvshow-item hidden">
+                            <img class="tvshow-poster" src="cyberpunk.jpg" alt="cyberpunk">
+                            <div class="ranking">2</div>
+                        </div>
+                        <div class="poster-wrapper tvshow-item hidden">
+                            <img class="tvshow-poster" src="99.jpg" alt="99">
+                            <div class="ranking">3</div>
+                        </div>
+                        <div class="poster-wrapper tvshow-item hidden">
+                            <img class="tvshow-poster" src="residence.JPG" alt="residence">
+                            <div class="ranking">4</div>
+                        </div>
+                        <div class="poster-wrapper tvshow-item hidden">
+                            <img class="tvshow-poster" src="prison.jpg" alt="prison">
+                            <div class="ranking">5</div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -49,7 +88,7 @@
     </div>
 
     <script src="https://unpkg.com/typed.js@3.0.0/dist/typed.umd.js"></script>
-    <script>
+    <script> /* this javascript is copied from source to create typing effect */
       var typed = new Typed('#typed-output', {
         strings: [
           'Here are some of my favorite movies/tv shows. Click the button to toggle between them!^1000'
@@ -60,10 +99,41 @@
         cursorChar: '|',
         contentType: 'html',
         onComplete: function(self) {
-          document.querySelectorAll('.movies-tvshows-grid, .preview').forEach(function(el){
-            el.classList.remove('hidden');
-          });
+          /* javascript, from w3schools order the different stuff to show after typing */
+          document.querySelector('.toggle-container').classList.remove('hidden');
+          setTimeout(function(){
+            document.querySelectorAll('.movies-tvshows-grid').forEach(function(el){
+              el.classList.remove('hidden');
+            });
+          }, 500);
         }
+      });
+
+      /* toggle between movies and tv shows */
+      document.addEventListener('DOMContentLoaded', function(){ /* used code from w3schools */
+        var toggleCheckbox = document.querySelector('.switch input');
+        var movieItems = document.querySelectorAll('.movie-item');
+        var tvshowItems = document.querySelectorAll('.tvshow-item');
+
+        toggleCheckbox.addEventListener('change', function(){
+          if(this.checked){
+            /* swap to tv shows */
+            movieItems.forEach(function(item){
+              item.classList.add('hidden');
+            });
+            tvshowItems.forEach(function(item){
+              item.classList.remove('hidden');
+            });
+          } else {
+            /* swap to movies */
+            movieItems.forEach(function(item){
+              item.classList.remove('hidden');
+            });
+            tvshowItems.forEach(function(item){
+              item.classList.add('hidden');
+            });
+          }
+        });
       });
     </script>
   </body>
