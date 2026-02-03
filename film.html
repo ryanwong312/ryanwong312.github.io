@@ -22,19 +22,24 @@
           <div class="message-icon">👤</div>
         </div>
         <div class="message ai-message">
-          <div class="message-icon">🤖</div>
-          <div class="message-content">
-            <span id="typed-output"></span>
-            <div class="photos-wrapper">
-                <div class="gallery-grid hidden">
-                <img class="thumb" src="lech.jpg" alt="lech">
-                <img class="thumb" src="maldives.jpg" alt="maldives">
-                <img class="thumb" src="sunrise.jpg" alt="sunrise">
-                <img class="thumb" src="snow.jpg" alt="snow">
-                <img class="thumb" src="angkor.JPG" alt="angkor">
-                <img class="thumb" src="dragon.jpg" alt="dragon">
+            <div class="message-icon">🤖</div>
+            <div class="message-content">
+                <span id="typed-output"></span>
+                <label class="switch">
+                    <input type="checkbox">
+                    <span class="slider round"></span>
+                </label>
+                <div class="movies-tvshows-wrapper">
+                    <div class="movies-tvshows-grid hidden">
+                        <img class="movie-poster" src="dune.jpg" alt="dune">
+                        <img class="movie-poster" src="wandering.jpg" alt="wandering">
+                        <img class="movie-poster" src="interstellar.jpg" alt="interstellar">
+                        <img class="movie-poster" src="wolf.jpg" alt="wolf">
+                        <img class="movie-poster" src="maverick.JPG" alt="maverick">
+                    </div>
                 </div>
-          </div>
+            </div>
+            </div>
         </div>
       </div>
 
@@ -55,7 +60,7 @@
         cursorChar: '|',
         contentType: 'html',
         onComplete: function(self) {
-          document.querySelectorAll('.gallery-grid, .preview').forEach(function(el){
+          document.querySelectorAll('.movies-tvshows-grid, .preview').forEach(function(el){
             el.classList.remove('hidden');
           });
         }
