@@ -16,5 +16,7 @@ My personal site.
 6. https://developer.mozilla.org/en-US/docs/Web/API/Element/classList used for a classlist to change visibility of photos
 7. https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/repeat repeats layout of photos for gallery display
 8. https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/margin-right used for aligning text to the left, the RyanAI header
+9. https://www.w3schools.com/howto/howto_css_switch.asp used for films/tv-shows toggle button css and html
+
 
 - [flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/) - center content and create structure to the site
